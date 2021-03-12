@@ -1,12 +1,19 @@
 require('dotenv').config();
 const express = require('express'),
     massive = require('massive'),
-    { SERVER_PORT, CONNECTION_STRING } = process.env,
+    session = require('express-session'),
+    authCtlr = require('./controllers/auth/authController'),
+    { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
     app = express();
 
 
 app.use(express.json());
-
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: SESSION_SECRET,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 365 }
+}))
 //CONNECT TO OUR DATABASE
 massive({
     connectionString: CONNECTION_STRING,
@@ -16,6 +23,12 @@ massive({
     console.log('Message Box DB connected');
 }).catch(err => console.log(`Error connected to DB: ${err.message}`));
 
+//ENDPOINTS
+
+//AUTH
+app.post('/api/register', authCtlr.register);
+app.get('/api/login', authCtlr.login);
+app.post('/api/logout', authCtlr.logout);
 
 app.listen(SERVER_PORT, console.log(`Message Box Listening on ${SERVER_PORT}`));
 
