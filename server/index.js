@@ -27,7 +27,7 @@ massive({
 
 //AUTH
 app.post('/api/register', authCtlr.register);
-app.get('/api/login', authCtlr.login);
+app.post('/api/login', authCtlr.login);
 app.post('/api/logout', authCtlr.logout);
 
 app.listen(SERVER_PORT, console.log(`Message Box Listening on ${SERVER_PORT}`));

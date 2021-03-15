@@ -1,29 +1,32 @@
-import { useState } from 'react'
-const Login = () => {
+import { useState } from 'react';
+import axios from 'axios';
+
+const Login = ({ push }) => {
 
     const [user, setUser] = useState({
-        email: '',
         username: '',
-        password: '',
-        verPassword: ''
-
+        password: ''
     });
 
     const handleFormChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
     }
-    console.log(user)
-    return (
-        <>
 
-            <input type='text' value={user.email} name='email' placeholder='Email' onChange={e => handleFormChange(e)} />
+    const login = e => {
+        e.preventDefault();
+        const { username, password } = user;
+        axios.post('/api/login', { username, password })
+            .then(user => push('/dash'))
+            .catch(err => console.log(`Error: ${err.response.request.response}`))
+    }
+
+    return (
+        <form onSubmit={(e) => login(e)}>
+            <h3>Login</h3>
             <input type='text' value={user.username} name='username' placeholder='Username' onChange={e => handleFormChange(e)} />
             <input type='password' value={user.password} name='password' placeholder='Password' onChange={e => handleFormChange(e)} />
-            <input type='password' value={user.verPassword} name='verPassword' placeholder='Verify Password' onChange={e => handleFormChange(e)} />
-            <button>Login</button>
-            <button>Sign Up</button>
-
-        </>
+            <button type='submit'>Login</button>
+        </form>
     )
 }
 

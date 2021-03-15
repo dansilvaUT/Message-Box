@@ -4,7 +4,6 @@ module.exports = {
     register: async (req, res) => {
         const { username, email, password } = req.body;
         const db = req.app.get('db');
-
         const [foundUser] = await db.users.check_user({ username, email });
 
         if (foundUser && foundUser.username === username) {
@@ -27,7 +26,6 @@ module.exports = {
     login: async (req, res) => {
         const { username, password } = req.body;
         const db = req.app.get('db');
-
         const [foundUser] = await db.users.get_user({ username });
 
         if (!foundUser) {
