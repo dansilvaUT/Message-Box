@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
+import Notifications from './Notifactions/Notifications';
 import './Dashboard.scss';
 
 const Dashboard = props => {
@@ -8,6 +9,7 @@ const Dashboard = props => {
         <>
             <Header />
             <section className='container dashboard-container'>
+                <Notifications />
             </section>
         </>
     )
