@@ -3,6 +3,7 @@ const express = require('express'),
     massive = require('massive'),
     session = require('express-session'),
     authCtlr = require('./controllers/auth/authController'),
+    userCtlr = require('./controllers/users/userController'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
     app = express();
 
@@ -30,5 +31,7 @@ app.post('/api/register', authCtlr.register);
 app.post('/api/login', authCtlr.login);
 app.post('/api/logout', authCtlr.logout);
 
+//USER
+app.get('/api/auth/me', userCtlr.getUser);
 app.listen(SERVER_PORT, console.log(`Message Box Listening on ${SERVER_PORT}`));
 

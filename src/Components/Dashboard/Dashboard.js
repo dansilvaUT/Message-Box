@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
+import './Dashboard.scss';
 
 const Dashboard = props => {
     // console.log('dash', props)
     return (
-        <section>
+        <>
             <Header />
-        </section>
+            <section className='container dashboard-container'>
+            </section>
+        </>
     )
 }
 
