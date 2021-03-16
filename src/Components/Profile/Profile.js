@@ -1,7 +1,16 @@
-const Profile = () => {
+import { connect } from 'react-redux';
+
+const Profile = props => {
+    console.log(props)
     return (
         <>Profile</>
     )
 }
 
-export default Profile;
+const mapStateToProps = reduxState => {
+    return {
+        user: reduxState.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps)(Profile);

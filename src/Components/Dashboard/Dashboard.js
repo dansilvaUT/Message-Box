@@ -1,9 +1,19 @@
-const Dashboard = () => {
+import { connect } from 'react-redux';
+import Header from '../Header/Header';
+
+const Dashboard = props => {
+    // console.log('dash', props)
     return (
-        <div>
-            <h1>dash</h1>
-        </div>
+        <section>
+            <Header />
+        </section>
     )
 }
 
-export default Dashboard;
+const mapStateToProps = reduxState => {
+    return {
+        user: reduxState.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard);
