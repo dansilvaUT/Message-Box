@@ -1,12 +1,12 @@
 import Nav from './Nav/Nav';
+import './Header.scss';
 
 const Header = props => {
     return (
-        <>
-            <header>
-                <Nav />
-            </header>
-        </>
+
+        <header className='header'>
+            <Nav />
+        </header>
     )
 }
 
