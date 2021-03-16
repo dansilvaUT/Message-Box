@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { getUser } from '../../../redux/reducers/userReducer';
 
-const Register = ({ push }) => {
+const Register = props => {
 
     const [user, setUser] = useState({
         email: '',
@@ -11,6 +13,7 @@ const Register = ({ push }) => {
 
     });
 
+    const { push, getUser } = props;
     const handleFormChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
     }
@@ -19,13 +22,15 @@ const Register = ({ push }) => {
         e.preventDefault();
         const { email, username, password } = user;
         axios.post('/api/register', { username, email, password })
-            .then(user => push('/profile'))
+            .then(user => {
+                getUser(user.data);
+                push('/profile');
+            })
             .catch(err => console.log(`Error: ${err.response.request.response}`))
     }
     // console.log('regiser user', user)
     return (
         <form onSubmit={e => register(e)}>
-            <h3>Register</h3>
             <input type='text' value={user.email} name='email' placeholder='Email' onChange={e => handleFormChange(e)} />
             <input type='text' value={user.username} name='username' placeholder='Username' onChange={e => handleFormChange(e)} />
             <input type='password' value={user.password} name='password' placeholder='Password' onChange={e => handleFormChange(e)} />
@@ -35,4 +40,4 @@ const Register = ({ push }) => {
     )
 }
 
-export default Register;
+export default connect(null, { getUser })(Register);
