@@ -33,5 +33,7 @@ app.post('/api/logout', authCtlr.logout);
 
 //USER
 app.get('/api/auth/me', userCtlr.getUser);
+app.get('/api/users/all', userCtlr.getAllUsers);
+
 app.listen(SERVER_PORT, console.log(`Message Box Listening on ${SERVER_PORT}`));
 
