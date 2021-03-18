@@ -15,7 +15,7 @@ const Dashboard = props => {
             <section className='container dashboard-container'>
                 <Notifications />
                 <Link to='/dash/users'>
-                    <Submit text='Start a Chat' />
+                    <Submit text='Search Users' />
                 </Link>
                 <section>
                     <Switch>
