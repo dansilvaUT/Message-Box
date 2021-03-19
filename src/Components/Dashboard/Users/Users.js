@@ -19,14 +19,17 @@ const Users = props => {
     }, [getUsers]);
 
     const mapUsers = list => {
+
         return list.map(user => (
             <User key={user.user_id} user={user} url={url} />
+
         ));
     }
 
     console.log('users component', props);
     return (
         <section className='users-container'>
+            
             <Submit text='Close' func={goBack} />
             {mapUsers(users)}
         </section>
