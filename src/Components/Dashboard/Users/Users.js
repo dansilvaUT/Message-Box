@@ -26,7 +26,7 @@ const Users = props => {
         ));
     }
 
-    console.log('users component', props);
+    // console.log('users component', props);
     return (
         <section className='users-container'>
             
