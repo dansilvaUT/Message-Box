@@ -1,29 +1,18 @@
-import Submit from '../../../Buttons/Submit';
 import Chat from '../../../Chat/Chat';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
+import { ModalContainer, ModalRoute } from 'react-router-modal';
 
 const User = ({ user, url }) => {
     // console.log('user', url)
-    const openChat = id => {
-        return (
-            <Link to={`${url}/chat/${id}`}>
-                <Submit text={`Start Chat with @${user.username}`} />
-            </Link>
-        )
-    }
-
     return (
         <article>
             <img src={user.profile_pic} alt={user.username} />
             <p>{user.username}</p>
-            <Switch>
-                <Route path={`${url}/chat/:id`} component={Chat} />
-            </Switch>
-            {openChat(user.user_id)}
-
-            <section>
-
-            </section>
+            <BrowserRouter>
+                <Link to={`${url}/chat/${user.user_id}`}>show foo</Link>
+                <ModalRoute component={Chat} path={`${url}/chat/:id`} className='test-modal test-modal-foo' />
+                <ModalContainer />
+            </BrowserRouter>
         </article>
     )
 }
