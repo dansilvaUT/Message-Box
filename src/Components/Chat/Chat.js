@@ -1,5 +1,6 @@
 import ChatControls from './ChatControls/ChatControls';
 import Submit from '../Buttons/Submit';
+import Chats from './Chats';
 import './Chat.scss';
 
 const Chat = props => {
@@ -7,9 +8,9 @@ const Chat = props => {
     console.log('chat controls', props)
     return (
         <section className='chat-container'>
-            <p>{props.location.pathname}</p>
             <Submit text='Close Chat' func={goBack} />
-            <ChatControls />
+            <Chats/>
+            
         </section>
     )
 }
