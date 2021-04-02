@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Login from './Login/Login';
 import Register from './Register/Register';
 import Heading1 from '../Headings/Heading1';
+import Heading2 from '../Headings/Heading2';
+import './Landing.scss';
 
 const Landing = ({ history: { push } }) => {
     const [registeredView, setRegisteredView] = useState(false);
@@ -11,20 +13,20 @@ const Landing = ({ history: { push } }) => {
     }
 
     return (
-        <section>
-            <h1>Message Box!</h1>
+        <section className='landing-container'>
+            <Heading1 text='Message Box!'/>
             <h3>A place where you can just chat, literally...</h3>
             {registeredView
                 ?
                 <>
-                    <Heading1 text='Register' />
+                    <Heading2 text='Register' />
                     <Register push={push} />
                     <p>Already have an account? Login <span onClick={() => toggleView()}>Here</span></p>
                 </>
 
                 :
                 <>
-                    <Heading1 text='Login' />
+                    <Heading2 text='Login' />
                     <Login push={push} />
                     <p>Don't have an account? Register <span onClick={() => toggleView()}>Here</span></p>
                 </>

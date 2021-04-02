@@ -2,6 +2,26 @@
     margin: 0;
 }
 
+//Colors
+$background: #c2c1c9;
+
+
+//Height/Width
+
+
+//FLEX
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+//Headings
+.heading1 {
+    font-size: 3rem;
+}
+
 .link {
     text-decoration: none;
 }

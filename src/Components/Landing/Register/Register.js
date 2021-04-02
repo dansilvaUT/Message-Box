@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { getUser } from '../../../redux/reducers/userReducer';
+import './Register.scss';
 
 const Register = props => {
 
@@ -30,7 +31,7 @@ const Register = props => {
     }
     // console.log('regiser user', user)
     return (
-        <form onSubmit={e => register(e)}>
+        <form className="form" onSubmit={e => register(e)}>
             <input type='text' value={user.email} name='email' placeholder='Email' onChange={e => handleFormChange(e)} />
             <input type='text' value={user.username} name='username' placeholder='Username' onChange={e => handleFormChange(e)} />
             <input type='password' value={user.password} name='password' placeholder='Password' onChange={e => handleFormChange(e)} />
