@@ -1,0 +1,7 @@
+@import '../../base';
+
+.landing-container {
+    background-color: $background;
+    height: 100vh;
+    @include flex-center;
+}
