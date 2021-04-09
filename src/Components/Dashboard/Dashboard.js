@@ -17,7 +17,6 @@ const Dashboard = props => {
                 <Link to='/dash/users'>
                     <Submit text='Search Users' />
                 </Link>
-                <Submit text='Start A Group Chat' />
                 <section>
                     <Switch>
                         <Route path='/dash/users' component={Users} />
