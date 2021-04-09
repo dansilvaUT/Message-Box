@@ -4,6 +4,7 @@ import Notifications from './Notifactions/Notifications';
 import Submit from '../Buttons/Submit';
 import { Switch, Route, Link } from 'react-router-dom';
 import Users from './Users/Users';
+import Button from '../Buttons/Submit';
 import './Dashboard.scss';
 
 const Dashboard = props => {
@@ -16,6 +17,7 @@ const Dashboard = props => {
                 <Link to='/dash/users'>
                     <Submit text='Search Users' />
                 </Link>
+                <Submit text='Start A Group Chat' />
                 <section>
                     <Switch>
                         <Route path='/dash/users' component={Users} />
