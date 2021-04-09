@@ -18,3 +18,15 @@ CREATE TABLE IF NOT EXISTS chat (
     user_id INT REFERENCES users(user_id),
     message TEXT
 )
+
+CREATE TABLE IF NOT EXISTS rooms (
+    id SERIAL PRIMARY KEY,
+    room_id INT
+)
+
+CREATE TABLE IF NOT EXISTS individual_chat (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(users),
+    room_id INT,
+    message TEXT
+)
