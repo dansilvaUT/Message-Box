@@ -32,15 +32,11 @@ const Users = props => {
     const toggleCreate = () => {
         setChat(!chat);
     }
-
     // console.log('users component', props);
     return (
         <section className='users-container'>
-            <section>
-                <Submit text='Close' func={goBack} />
-                <Submit text='Create A Chat' func={() => toggleCreate()} />
-                {mapUsers(users)}
-            </section>
+            <Submit text='Close' func={goBack} />
+            <Submit text='Create A Chat' func={() => toggleCreate()} />
             <section>
                 {chat
                     ?
@@ -48,10 +44,11 @@ const Users = props => {
                     :
                     null
                 }
-
+            </section>
+            <section>
+                {mapUsers(users)}
             </section>
         </section>
-
     )
 }
 
