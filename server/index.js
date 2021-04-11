@@ -4,6 +4,7 @@ const express = require('express'),
     session = require('express-session'),
     authCtlr = require('./controllers/auth/authController'),
     userCtlr = require('./controllers/users/userController'),
+    chatCtlr = require('./controllers/chat/chatController'),
     socket = require('socket.io'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
     app = express();
@@ -42,6 +43,10 @@ app.post('/api/logout', authCtlr.logout);
 app.get('/api/auth/me', userCtlr.getUser);
 app.get('/api/users/all', userCtlr.getAllUsers);
 
+
+//GROUPS
+app.post('/api/group/create', chatCtlr.createGroup);
+app.get('/api/groups', chatCtlr.getGroups);
 //Sockets
 io.on("connection", function (socket) {
     socket.on("startChat", async function (data) {

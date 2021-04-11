@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS chat_group (
     group_id SERIAL PRIMARY KEY,
+    owner INT REFERENCES users(user_id),
     name VARCHAR(100) NOT NULL
 )
 
