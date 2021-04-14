@@ -6,12 +6,17 @@ import Label from '../../Label/Label';
 const StartChat = () => {
 
     const [chatName, setChatName] = useState('');
+    const [isPrivate, setPrivate] = useState(false);
 
     const handleInputChange = e => {
         setChatName(e.target.value)
     }
 
-    console.log(chatName)
+    const handleCheckBoxChange = e => {
+        setPrivate(e.target.checked)
+    }
+
+    // console.log('is it private',isPrivate)
 
     return (
         <section className="chat-name-container">
@@ -28,7 +33,8 @@ const StartChat = () => {
                 text='Private' />
             <TextField
                 type='checkbox'
-                name='private'
+                name='isPrivate'
+                func={e => handleCheckBoxChange(e)}
             />
         </section>
     )

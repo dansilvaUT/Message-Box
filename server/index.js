@@ -46,7 +46,7 @@ app.get('/api/users/all', userCtlr.getAllUsers);
 
 //GROUPS
 app.post('/api/group/create', chatCtlr.createGroup);
-app.get('/api/groups', chatCtlr.getGroups);
+app.get('/api/groups/:id', chatCtlr.getGroups);
 //Sockets
 io.on("connection", function (socket) {
     socket.on("startChat", async function (data) {

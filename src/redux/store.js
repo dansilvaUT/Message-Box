@@ -5,20 +5,16 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const rootReducer = combineReducers({
-    userReducer
+  userReducer
 });
 
 const persistConfig = {
-    key: 'root',
-    storage,
-  }
-   
-  const persistedReducer = persistReducer(persistConfig, rootReducer)
-   
-  export default () => {
-    let store = createStore(persistedReducer, applyMiddleware(promiseMiddleware))
-    let persistor = persistStore(store)
-    return { store, persistor }
-  }
+  key: 'root',
+  storage,
+}
 
-//export default createStore(rootReducer,  applyMiddleware(promiseMiddleware));
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+let store = createStore(persistedReducer, applyMiddleware(promiseMiddleware));
+let persistor = persistStore(store);
+export { store, persistor }
