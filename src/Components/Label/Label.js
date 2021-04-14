@@ -1,6 +1,6 @@
 const Label = ({ name, text }) => {
     return (
-        <label for={name}>{text}</label >
+        <label htmlFor={name}>{text}</label >
     )
 }
 

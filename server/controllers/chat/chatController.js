@@ -16,7 +16,7 @@ module.exports = {
 
     getGroups: async (req, res) => {
         const db = req.app.get('db');
-        const { user_id: owner } = req.session.user;
+        const { id: owner } = req.params;
 
         const groups = await db.chat.get_groups_by_owner({ owner });
 
