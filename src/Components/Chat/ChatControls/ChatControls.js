@@ -1,5 +1,5 @@
 import Submit from '../../Buttons/Submit';
-import TextField from '../../TextField/TextField';
+import TextField from '../../Inputs/TextField';
 import { useState } from 'react';
 
 const ChatControl = () => {
@@ -8,7 +8,7 @@ const ChatControl = () => {
     const handleMessageInput = e => {
         setMessage(e.target.value)
     }
-    
+
     return (
         <section>
             <TextField

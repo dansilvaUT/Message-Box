@@ -2,11 +2,14 @@ import TextField from '../../Inputs/TextField';
 import { useState } from 'react';
 import Submit from '../../Buttons/Submit';
 import Label from '../../Label/Label';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
-const StartChat = () => {
+const StartChat = props => {
 
     const [chatName, setChatName] = useState('');
     const [isPrivate, setPrivate] = useState(false);
+    const { user_id } = props;
 
     const handleInputChange = e => {
         setChatName(e.target.value)
@@ -16,8 +19,13 @@ const StartChat = () => {
         setPrivate(e.target.checked)
     }
 
-    // console.log('is it private',isPrivate)
-
+    const addGroup = (owner, name, privateGroup) => {
+        axios.post('/api/group/create', { owner, name, privateGroup })
+            .then(() => console.log('Success'))
+            .catch(err => console.log(`Error: ${err.message}`));
+    }
+    // console.log('is it private', props)
+    //TODO after group is added display it immediatly on groups(window.reload)?
     return (
         <section className="chat-name-container">
             <TextField
@@ -27,7 +35,7 @@ const StartChat = () => {
                 func={e => handleInputChange(e)}
                 value={chatName}
             />
-            <Submit text='Add Name' />
+            <Submit text='Add Name' func={() => addGroup(user_id, chatName, isPrivate)} />
             <Label
                 name='isPrivate'
                 text='Private' />
@@ -40,4 +48,10 @@ const StartChat = () => {
     )
 }
 
-export default StartChat;
+const mapStateToProps = reduxState => {
+    return {
+        user_id: reduxState.userReducer.user.user_id
+    }
+}
+
+export default connect(mapStateToProps)(StartChat);

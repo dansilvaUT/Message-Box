@@ -1,21 +1,17 @@
 import Heading2 from '../../../Headings/Heading2';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getUserGroups } from '../../../../redux/reducers/chatGroupReducer';
 import axios from 'axios';
 import Group from './Group/Group';
 
 const Groups = props => {
 
-    const [groups, setGroups] = useState([]);
-    const { user_id } = props;
+    const { user_id, getUserGroups, groups } = props;
 
     useEffect(() => {
-        axios.get(`/api/groups/${user_id}`)
-            .then(res => setGroups(res.data))
-            .catch(err => {
-                console.log(`Error: ${err.message}`);
-            })
-    }, [user_id]);
+        getUserGroups(user_id)
+    }, [user_id, getUserGroups]);
 
     const displayChatGroups = list => {
         let groupList = list.map(group => (
@@ -24,7 +20,6 @@ const Groups = props => {
         return groupList;
     }
 
-    // console.log('groups', groups)
     return (
         <section>
             <Heading2 text='My Groups' />
@@ -35,8 +30,9 @@ const Groups = props => {
 
 const mapStateToProps = reduxState => {
     return {
-        user_id: reduxState.userReducer.user.user_id
+        user_id: reduxState.userReducer.user.user_id,
+        groups: reduxState.chatGroupReducer.groups.data
     }
 }
 
-export default connect(mapStateToProps)(Groups);
+export default connect(mapStateToProps, { getUserGroups })(Groups);

@@ -1,8 +1,7 @@
 INSERT INTO chat_group
-(owner, name)
+(owner, name, private)
 VALUES (
     ${owner},
-    ${name}
-)
-
-RETURNING *;
+    ${name},
+    ${privateGroup}
+);

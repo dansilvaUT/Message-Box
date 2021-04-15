@@ -1,6 +1,6 @@
 module.exports = {
     createGroup: async (req, res) => {
-        const { owner, name } = req.body;
+        const { owner, name, privateGroup } = req.body;
         const db = req.app.get('db');
 
         const [query] = await db.chat.check_group({ owner, name });
@@ -9,9 +9,9 @@ module.exports = {
             return res.status(405).send('Name already in use');
         }
 
-        const group = await db.chat.create_group({ owner, name });
+        await db.chat.create_group({ owner, name, privateGroup });
 
-        res.status(201).send(group);
+        res.sendStatus(201);
     },
 
     getGroups: async (req, res) => {
