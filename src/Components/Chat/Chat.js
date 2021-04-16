@@ -6,11 +6,14 @@ import './Chat.scss';
 
 const Chat = props => {
 
-    // const [message, setMessage] = useState('');
-    // const [messages, setMessages] = useState([]);
-    // const [group, setGroup] = useState('');
-    
+    const [message, setMessage] = useState('');
+    const [messages, setMessages] = useState([]);
+
     const { goBack } = props.history;
+    // socket.on('room joined', data => {
+    //     this.joinSuccess(data);
+    // })
+
     console.log('chat controls', props)
     return (
         <>
