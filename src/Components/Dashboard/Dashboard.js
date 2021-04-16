@@ -4,7 +4,6 @@ import Notifications from './Notifactions/Notifications';
 import Submit from '../Buttons/Submit';
 import { Switch, Route, Link } from 'react-router-dom';
 import Users from './Users/Users';
-import Button from '../Buttons/Submit';
 import './Dashboard.scss';
 
 const Dashboard = props => {

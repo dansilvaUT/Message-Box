@@ -1,8 +1,7 @@
 import Heading2 from '../../../Headings/Heading2';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getUserGroups } from '../../../../redux/reducers/chatGroupReducer';
-import axios from 'axios';
 import Group from './Group/Group';
 
 const Groups = props => {

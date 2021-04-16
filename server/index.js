@@ -29,7 +29,7 @@ massive({
 
 //Listen for changes and connect to sockets
 const io = socket(
-    app.listen(SERVER_PORT, console.log(`MyCanyon listening on ${SERVER_PORT}`))
+    app.listen(SERVER_PORT, console.log(`Message Box listening on ${SERVER_PORT}`))
 )
 
 //ENDPOINTS
@@ -47,49 +47,46 @@ app.get('/api/users/all', userCtlr.getAllUsers);
 //GROUPS
 app.post('/api/group/create', chatCtlr.createGroup);
 app.get('/api/groups/:id', chatCtlr.getGroups);
+
 //Sockets
-io.on("connection", function (socket) {
-    socket.on("startChat", async function (data) {
-        console.log('start hit', data);
-        // const { chatRoomId, viewedUserId, id } = data;
-        // const db = app.get("db");
-        // let room = await db.chat.check_room({ id: chatRoomId });
-        // room = room[0];
-        // if (!room) {
-        //     db.chat.create_room({
-        //         id: chatRoomId,
-        //         user1: id,
-        //         user2: viewedUserId
-        //     });
-        //     socket.join(chatRoomId);
-        // } else {
-        //     const { room_id } = room;
-        //     let messages = await db.chat.get_all_messages({ room_id: room_id });
+// io.on('connection', socket => {
+//     console.log('user connected')
+    // socket.on('join room', async data => {
+    //     const { group } = data,
+    //         db = app.get('db');
 
-        //     socket.join(chatRoomId);
-        //     io.to(chatRoomId).emit("startChat", messages);
-        // }
-    });
+    //     console.log("Room joined", group);
 
-    // socket.on("endChat", function (chatRoomId) {
-    //     socket.leave(chatRoomId);
+    //     let room = await db.group.get_active_group({ group });
+    //     let messages = await db.message.message_history({ group });
+    //     socket.join(room);
+    //     io.to(room).emit('room joined', messages);
     // });
+    // socket.on("message sent", async data => {
+    //     const { group, sender, message } = data,
+    //         db = app.get("db");
 
-    // socket.on("sendMsg", async function (data) {
-    //     console.log(data);
-    //     const { user1, message, room } = data;
-    //     const db = app.get("db");
-    //     let messages = await db.chat.create_message({
-    //         room_id: room,
-    //         message,
-    //         sender_id: user1
-    //     });
-
-    //     console.log(messages);
-
-    //     io.to(data.room).emit("sendMsg", messages);
+    //     await db.message.create_message({ group, sender, message });
+    //     let messages = await db.message.message_history({ group });
+    //     socket.emit("message dispatched", messages);
     // });
-});
+    // socket.on("emoji react", async data => {
+    //     const { message_id, colons, sender, group } = data,
+    //         db = app.get('db');
 
+    //     await db.message.add_message_reaction({ message_id, sender, colons });
+    //     let messages = await db.message.message_history({ group });
+    //     socket.emit('reaction added', messages)
+    // })
+    // socket.on("delete emoji", async data => {
+    //     const { colons, sender, group } = data,
+    //         db = app.get('db');
 
-
+    //     await db.message.delete_message_reaction({ colons, sender });
+    //     let messages = await db.message.message_history({ group });
+    //     socket.emit('reaction deleted', messages);
+    // })
+//     socket.on("disconnect", () => {
+//         console.log("User Disconnected");
+//     });
+// });
