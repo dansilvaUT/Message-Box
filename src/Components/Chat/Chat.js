@@ -1,7 +1,7 @@
 import Submit from '../Buttons/Submit';
 import Chats from './Chats';
 import io from 'socket.io-client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Chat.scss';
 
 const Chat = props => {
@@ -10,9 +10,14 @@ const Chat = props => {
     const [messages, setMessages] = useState([]);
 
     const { goBack } = props.history;
-    // socket.on('room joined', data => {
-    //     this.joinSuccess(data);
-    // })
+    const socket = io.connect()
+
+    useEffect(() => {
+        socket.on('room joined', data => {
+            this.joinSuccess(data);
+        })
+    })
+
 
     console.log('chat controls', props)
     return (
