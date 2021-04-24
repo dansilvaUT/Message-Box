@@ -1,25 +1,23 @@
 import Submit from '../Buttons/Submit';
 import Chats from './Chats';
-import io from 'socket.io-client';
-import { useState, useEffect } from 'react';
+import { getGroupInfo } from '../../redux/reducers/chatGroupReducer';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { useEffect } from 'react';
 import './Chat.scss';
 
 const Chat = props => {
 
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([]);
-
     const { goBack } = props.history;
-    const socket = io.connect()
+    const { id } = props.match.params;
+    const { getGroupInfo } = props;
 
     useEffect(() => {
-        socket.on('room joined', data => {
-            this.joinSuccess(data);
-        })
-    })
-
-
-    console.log('chat controls', props)
+        axios.get(`/api/group/${+id}`)
+            .then(group => getGroupInfo(group.data))
+            .catch(err => console.log(`Error: ${err.message}`));
+    }, [])
+    console.log('chat ', props)
     return (
         <>
             <section className='chat-container'>
@@ -31,4 +29,4 @@ const Chat = props => {
     )
 }
 
-export default Chat;
+export default connect(null, { getGroupInfo })(Chat);
