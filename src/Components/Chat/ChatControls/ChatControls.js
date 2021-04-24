@@ -2,21 +2,17 @@ import Submit from '../../Buttons/Submit';
 import TextField from '../../Inputs/TextField';
 import { useState } from 'react';
 
-const ChatControl = () => {
-    const [message, setMessage] = useState('');
-
-    const handleMessageInput = e => {
-        setMessage(e.target.value)
-    }
-
+const ChatControl = props => {
+    // console.log('chat controls', props)
+    const { messageInput, handleMessageProp } = props
     return (
         <section>
             <TextField
                 name='message'
                 placeholder='Message'
                 type='text'
-                func={e => handleMessageInput(e)}
-                value={message}
+                func={e => handleMessageProp(e)}
+                value={messageInput}
             />
             <Submit text='Send' />
         </section>

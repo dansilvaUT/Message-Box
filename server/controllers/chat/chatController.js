@@ -25,5 +25,18 @@ module.exports = {
         }
 
         res.status(200).send(groups);
+    },
+
+    getGroup: async (req, res) => {
+        const db = req.app.get('db');
+        const { id } = req.params;
+
+        const group = await db.chat.get_group({ id });
+
+        if (!group[0]) {
+            return res.status(404).send('No group info to display');
+        }
+
+        res.status(200).send(group);
     }
 }
