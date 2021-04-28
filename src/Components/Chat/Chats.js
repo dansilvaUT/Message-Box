@@ -26,8 +26,8 @@ const Chats = props => {
     const sendMessage = () => {
         socket.emit('message sent', {
             message: message,
-            sender: user_id
-            // group: +this.props.match.params.id
+            sender: user_id,
+            group: props.group.group_id
         })
     }
 
@@ -39,7 +39,7 @@ const Chats = props => {
             <div className="messages-container">
 
             </div>
-            <ChatControls handleMessageProp={handleMessageInput} messageInput={message} sendMessageProp={sendMessage}/>
+            <ChatControls handleMessageProp={handleMessageInput} messageInput={message} sendMessageProp={sendMessage} />
         </section>
     )
 }

@@ -50,44 +50,44 @@ app.get('/api/groups/:id', chatCtlr.getGroups);
 app.get('/api/group/:id', chatCtlr.getGroup);
 
 //Sockets
-// io.on('connection', socket => {
-//     console.log('user connected')
-//     socket.on('join room', async data => {
-//         const { group } = data,
-//             db = app.get('db');
+io.on('connection', socket => {
+    console.log('user connected')
+    socket.on('join room', async data => {
+        const { group } = data,
+            db = app.get('db');
 
-//         console.log("Room joined", group);
+        console.log("Room joined", group);
 
-//         let room = await db.group.get_active_group({ group });
-//         let messages = await db.message.message_history({ group });
-//         socket.join(room);
-//         io.to(room).emit('room joined', messages);
-//     });
-//     socket.on("message sent", async data => {
-//         const { group, sender, message } = data,
-//             db = app.get("db");
+        let room = await db.group.get_active_group({ group });
+        let messages = await db.message.message_history({ group });
+        socket.join(room);
+        io.to(room).emit('room joined', messages);
+    });
+    socket.on("message sent", async data => {
+        const { group, sender, message } = data,
+            db = app.get("db");
 
-//         await db.message.create_message({ group, sender, message });
-//         let messages = await db.message.message_history({ group });
-//         socket.emit("message dispatched", messages);
-//     });
-//     socket.on("emoji react", async data => {
-//         const { message_id, colons, sender, group } = data,
-//             db = app.get('db');
+        await db.message.create_message({ group, sender, message });
+        let messages = await db.message.message_history({ group });
+        socket.emit("message dispatched", messages);
+    });
+    socket.on("emoji react", async data => {
+        const { message_id, colons, sender, group } = data,
+            db = app.get('db');
 
-//         await db.message.add_message_reaction({ message_id, sender, colons });
-//         let messages = await db.message.message_history({ group });
-//         socket.emit('reaction added', messages)
-//     })
-//     socket.on("delete emoji", async data => {
-//         const { colons, sender, group } = data,
-//             db = app.get('db');
+        await db.message.add_message_reaction({ message_id, sender, colons });
+        let messages = await db.message.message_history({ group });
+        socket.emit('reaction added', messages)
+    })
+    socket.on("delete emoji", async data => {
+        const { colons, sender, group } = data,
+            db = app.get('db');
 
-//         await db.message.delete_message_reaction({ colons, sender });
-//         let messages = await db.message.message_history({ group });
-//         socket.emit('reaction deleted', messages);
-//     })
-//     socket.on("disconnect", () => {
-//         console.log("User Disconnected");
-//     });
-// });
+        await db.message.delete_message_reaction({ colons, sender });
+        let messages = await db.message.message_history({ group });
+        socket.emit('reaction deleted', messages);
+    })
+    socket.on("disconnect", () => {
+        console.log("User Disconnected");
+    });
+});

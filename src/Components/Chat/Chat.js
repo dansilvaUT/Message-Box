@@ -16,7 +16,7 @@ const Chat = props => {
         axios.get(`/api/group/${+id}`)
             .then(group => getGroupInfo(group.data))
             .catch(err => console.log(`Error: ${err.message}`));
-    }, [])
+    }, [id, getGroupInfo])
     console.log('chat ', props)
     return (
         <>

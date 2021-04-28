@@ -14,7 +14,7 @@ const ChatControl = props => {
                 func={e => handleMessageProp(e)}
                 value={messageInput}
             />
-            <Submit text='Send' />
+            <Submit text='Send' func={props.sendMessageProp}/>
         </section>
     )
 }
