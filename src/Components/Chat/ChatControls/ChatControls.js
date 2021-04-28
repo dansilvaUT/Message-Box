@@ -3,8 +3,8 @@ import TextField from '../../Inputs/TextField';
 import { useState } from 'react';
 
 const ChatControl = props => {
-    // console.log('chat controls', props)
-    const { messageInput, handleMessageProp } = props
+    console.log('chat controls', props)
+    const { messageInput, handleMessageProp, sendMessageProp } = props
     return (
         <section>
             <TextField
@@ -14,7 +14,7 @@ const ChatControl = props => {
                 func={e => handleMessageProp(e)}
                 value={messageInput}
             />
-            <Submit text='Send' func={props.sendMessageProp}/>
+            <Submit text='Send' func={() => sendMessageProp()} />
         </section>
     )
 }
