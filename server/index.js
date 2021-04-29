@@ -53,22 +53,22 @@ app.get('/api/group/:id', chatCtlr.getGroup);
 io.on('connection', socket => {
     console.log('user connected')
     socket.on('join room', async data => {
-        const { group_id } = data,
-            db = app.get('db');
-
-        console.log("Room joined", group_id);
+        const { group_id } = data;
+        const db = app.get('db');
 
         let room = await db.chat.get_group_name({ group_id });
         let messages = await db.chat.get_group_messages({ group_id });
         socket.join(room);
+        console.log('Mess1', messages);
         io.to(room).emit('room joined', messages);
     });
     socket.on("message sent", async data => {
-        const { group_id, user_id, message } = data,
-            db = app.get("db");
+        const { group_id, user_id, message } = data;
+        const db = app.get("db");
         console.log('chat data', data)
         await db.chat.create_group_message({ group_id, user_id, message });
         let messages = await db.chat.get_group_messages({ group_id });
+        console.log('Mess2', messages);
         socket.emit("message dispatched", messages);
     });
     socket.on("disconnect", () => {
