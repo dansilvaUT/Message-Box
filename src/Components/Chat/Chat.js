@@ -17,7 +17,9 @@ const Chat = props => {
             .then(group => getGroupInfo(group.data))
             .catch(err => console.log(`Error: ${err.message}`));
     }, [id, getGroupInfo])
-   // console.log('chat ', props)
+    // console.log('chat ', props)
+
+ 
     return (
         <>
             <section className='chat-container'>
