@@ -56,10 +56,10 @@ io.on('connection', socket => {
         const { group_id } = data,
             db = app.get('db');
 
-        console.log("Room joined", group);
+        console.log("Room joined", group_id);
 
         let room = await db.chat.get_group_name({ group_id });
-        let messages = await db.chat.message_history({ group_id });
+        let messages = await db.chat.get_group_messages({ group_id });
         socket.join(room);
         io.to(room).emit('room joined', messages);
     });

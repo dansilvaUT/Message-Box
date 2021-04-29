@@ -12,13 +12,11 @@ const Nav = props => {
             .then(user => getUser(user.data))
     }, [getUser]);
 
-    // console.log('nav', props)
     const logout = () => {
         axios.post('/api/logout')
             .then(() => clearUser())
             .catch(err => console.log(`Error: ${err.message}`));
     }
-    console.log(props)
     return (
         <nav className='navbar'>
             <span>Welcome {username}</span>
