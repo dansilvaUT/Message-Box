@@ -12,13 +12,16 @@ const Chats = props => {
     const socket = io.connect();
     const { user_id } = props;
     const { group_id } = props.group[0];
+
     useEffect(() => {
         socket.on('room joined', data => {
             joinSuccess(data);
         });
         socket.on('message dispatched', data => {
             getMessages(data);
-        })
+        });
+
+        joinRoom();
     }, [socket]);
 
     const handleMessageInput = e => {
@@ -41,7 +44,13 @@ const Chats = props => {
         setMessages(messages)
     }
 
-    console.log('chats', group_id);
+    const joinRoom = async () => {
+        socket.emit('join room', {
+            group_id
+        })
+    }
+
+    console.log('chats', messages);
     return (
         <section>
             <div className="messages-container">
