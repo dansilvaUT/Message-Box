@@ -53,7 +53,6 @@ app.get('/api/group/:id', chatCtlr.getGroup);
 io.on('connection', socket => {
     console.log('user connected')
     socket.on('join room', async data => {
-        console.log('socket',data)
         const { group_id } = data,
             db = app.get('db');
 
@@ -67,7 +66,7 @@ io.on('connection', socket => {
     socket.on("message sent", async data => {
         const { group_id, user_id, message } = data,
             db = app.get("db");
-
+        console.log('chat data', data)
         await db.chat.create_group_message({ group_id, user_id, message });
         let messages = await db.chat.get_group_messages({ group_id });
         socket.emit("message dispatched", messages);

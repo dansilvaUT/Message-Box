@@ -1,9 +1,9 @@
 import Submit from '../../Buttons/Submit';
 import TextField from '../../Inputs/TextField';
-import { useState } from 'react';
+//import { useState } from 'react';
 
 const ChatControl = props => {
-    console.log('chat controls', props)
+    //console.log('chat controls', props)
     const { messageInput, handleMessageProp, sendMessageProp } = props
     return (
         <section>
