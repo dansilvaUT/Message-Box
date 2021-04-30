@@ -1,7 +1,7 @@
-const TextField = ({ placeholder, type, name, value, func, checked }) => {
+const TextField = ({ placeholder, type, name, value, func, checked, classname }) => {
     return (
         <>
-            <input placeholder={placeholder} type={type} name={name} onChange={func} value={value} checked={checked} />
+            <input className={classname} placeholder={placeholder} type={type} name={name} onChange={func} value={value} checked={checked} />
         </>
     )
 }
