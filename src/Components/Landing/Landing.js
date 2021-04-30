@@ -15,20 +15,20 @@ const Landing = ({ history: { push } }) => {
     return (
         <section className='landing-container'>
             <Heading1 text='Message Box!'/>
-            <h3>A place where you can just chat, literally...</h3>
+            <Heading2 text='A place where you can just chat, literally...'/>
             {registeredView
                 ?
                 <>
                     <Heading2 text='Register' />
                     <Register push={push} />
-                    <p>Already have an account? Login <span onClick={() => toggleView()}>Here</span></p>
+                    <p>Already have an account? Login <span className="toggle-landing-view"onClick={() => toggleView()}>Here</span></p>
                 </>
 
                 :
                 <>
                     <Heading2 text='Login' />
                     <Login push={push} />
-                    <p>Don't have an account? Register <span onClick={() => toggleView()}>Here</span></p>
+                    <p>Don't have an account? Register <span className="toggle-landing-view"onClick={() => toggleView()}>Here</span></p>
                 </>
             }
         </section>

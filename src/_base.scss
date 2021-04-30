@@ -3,8 +3,10 @@
 }
 
 //Colors
-$background: #c2c1c9;
+$background: #091122;
 $green:  #04ba28;
+$green-hover: #04ba28a4;
+$blue: rgb(0, 132, 255);
 
 //Height/Width
 
@@ -32,6 +34,7 @@ input {
 
 button {
     cursor: pointer;
+    color: white;
 }
 
 .link {
