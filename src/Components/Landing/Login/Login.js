@@ -33,7 +33,7 @@ const Login = props => {
         <form className="form" onSubmit={(e) => login(e)}>
             <TextField classname='input landing-input' type='text' value={user.username} name='username' placeholder='Username' func={e => handleFormChange(e)} />
             <TextField classname='input landing-input' type='password' value={user.password} name='password' placeholder='Password' func={e => handleFormChange(e)} />
-            <Submit classname="btn login-btn" text='Login' />
+            <Submit classname="btn login-btn" type='submit' text='Login' />
         </form>
     )
 }

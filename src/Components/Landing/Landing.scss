@@ -2,6 +2,15 @@
 
 .landing-container {
     background-color: $background;
+    color: white;
     height: 100vh;
     @include flex-center;
+
+    .toggle-landing-view {
+        cursor: pointer;
+    }
+
+    .toggle-landing-view:hover {
+        border-bottom: 1px solid white;
+    }
 }
