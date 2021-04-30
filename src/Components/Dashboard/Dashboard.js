@@ -9,7 +9,7 @@ import './Dashboard.scss';
 const Dashboard = props => {
     // console.log('dash', props)
     return (
-        <>
+        <section className="dashboard">
             <Header />
             <section className='container dashboard-container'>
                 <Notifications />
@@ -22,7 +22,7 @@ const Dashboard = props => {
                     </Switch>
                 </section>
             </section>
-        </>
+        </section>
     )
 }
 

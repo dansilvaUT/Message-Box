@@ -1,8 +1,9 @@
 @import '../../../base';
 
 .navbar {
-    background-color: blue;
-    display: flex;
-    flex-direction: column;
+    @include flex-center;
+    align-items: flex-start;
     padding: 5px;
+    height: 50vh;
+    justify-content: space-evenly;
 }

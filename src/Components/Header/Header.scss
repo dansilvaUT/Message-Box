@@ -2,9 +2,10 @@
 
 .header {
     height: 100%;
-    background-color: black;
+    background-color: $blue-lighter;
     width: 100px;
     margin: 0;
     position: fixed;
     z-index: 2;
+    // @include flex-center;
 }

@@ -22,7 +22,7 @@ const Nav = props => {
             <span>Welcome {username}</span>
             <Link className='link nav-link' to='/dash'>Dashboard</Link>
             <Link className='link nav-link' to='/profile'>Profile</Link>
-            <Link to='/' onClick={() => logout()}>Log Out</Link>
+            <Link className='link nav-link' to='/' onClick={() => logout()}>Log Out</Link>
         </nav>
     )
 }
