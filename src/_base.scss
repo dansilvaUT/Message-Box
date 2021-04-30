@@ -4,7 +4,7 @@
 
 //Colors
 $background: #c2c1c9;
-
+$green:  #04ba28;
 
 //Height/Width
 
@@ -20,6 +20,18 @@ $background: #c2c1c9;
 //Headings
 .heading1 {
     font-size: 3rem;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input {
+    border: none;
+}
+
+button {
+    cursor: pointer;
 }
 
 .link {

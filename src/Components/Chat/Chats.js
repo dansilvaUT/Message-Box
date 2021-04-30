@@ -15,7 +15,6 @@ class Chats extends Component {
         this.messageEnd = React.createRef();
     }
 
-
     componentDidMount() {
         this.socket = io();
         this.socket.on('room joined', data => {

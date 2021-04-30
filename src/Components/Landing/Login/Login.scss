@@ -3,3 +3,18 @@
 .form {
     @include flex-center;
 }
+
+.landing-input {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.login-btn {
+    border: 1px solid $green;
+    border-radius: 3px;
+    width: 50%;
+    padding: 3px;
+    background-color: none;
+}
