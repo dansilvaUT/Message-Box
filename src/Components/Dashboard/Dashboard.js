@@ -4,6 +4,7 @@ import Notifications from './Notifactions/Notifications';
 import Submit from '../Buttons/Submit';
 import { Switch, Route, Link } from 'react-router-dom';
 import Users from './Users/Users';
+import UsersIcon from '../Icons/UsersIcon';
 import './Dashboard.scss';
 
 const Dashboard = props => {
@@ -14,7 +15,7 @@ const Dashboard = props => {
             <section className='container dashboard-container'>
                 <Notifications />
                 <Link to='/dash/users'>
-                    <Submit text='Search Users' />
+                    <Submit classname='btn search-btn' text='Search Users' icon={<UsersIcon />} />
                 </Link>
                 <section>
                     <Switch>

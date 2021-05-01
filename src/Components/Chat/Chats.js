@@ -1,6 +1,6 @@
 import ChatControls from './ChatControls/ChatControls';
 import io from 'socket.io-client';
-import React, { useState, useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Chats.scss';
 
