@@ -4,5 +4,17 @@
     background-color: $background;
     height: 100vh;
     color: white;
+
+    .search-btn {
+        border: 1px solid $blue;
+        background-color: transparent;
+        padding: 5px;
+    }
+
+    .search-btn:hover {
+        background-color: $blue-transparent;
+    }
 }
+
+
 
