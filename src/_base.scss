@@ -21,6 +21,12 @@ $blue-lighter:#0f1e41;
     align-items: center;
 }
 
+@mixin flex-center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 //Headings
 .heading1 {
     font-size: 3rem;

@@ -5,6 +5,11 @@
     height: 100vh;
     color: white;
 
+    .dashboard-container {
+        @include flex-center-row;
+        height: 100vh;
+    }
+   
     .search-btn {
         border: 1px solid $blue;
         background-color: transparent;

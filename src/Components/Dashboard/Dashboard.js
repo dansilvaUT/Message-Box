@@ -17,11 +17,9 @@ const Dashboard = props => {
                 <Link to='/dash/users'>
                     <Submit classname='btn search-btn' text='Search Users' icon={<UsersIcon />} />
                 </Link>
-                <section>
-                    <Switch>
-                        <Route path='/dash/users' component={Users} />
-                    </Switch>
-                </section>
+                <Switch>
+                    <Route path='/dash/users' component={Users} />
+                </Switch>
             </section>
         </section>
     )
