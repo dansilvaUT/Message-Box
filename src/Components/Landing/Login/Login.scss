@@ -19,6 +19,7 @@
 
 .login-btn {
     border: 1px solid $green;
+    color: $green;
     width: 30%;
     padding: 5px;
     background-color: transparent;
@@ -26,4 +27,5 @@
 
 .login-btn:hover {
     background-color: $green-hover;
+    color: white;
 }

@@ -12,6 +12,7 @@
    
     .search-btn {
         border: 1px solid $blue;
+        color: $blue;
         background-color: transparent;
         padding: 5px;
         font-size: 1.5rem;
@@ -20,6 +21,7 @@
 
     .search-btn:hover {
         background-color: $blue-transparent;
+        color: white;
     }
 }
 
