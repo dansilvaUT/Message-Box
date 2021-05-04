@@ -2,9 +2,10 @@
 
 .group-container {
 
-    @include flex-center-row;
-    align-items: baseline;
-
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    
     #group-name {
         font-size: 1.5rem;
         font-weight: bold;
