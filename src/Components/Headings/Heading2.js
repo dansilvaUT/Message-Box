@@ -1,3 +1,3 @@
-const Heading2 = ({ text }) => <h2>{text}</h2>
+const Heading2 = ({ text, classname }) => <h2 className={classname}>{text}</h2>
 
 export default Heading2;

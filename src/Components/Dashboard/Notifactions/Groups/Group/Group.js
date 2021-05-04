@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
+import ChatIcon from '../../../../Icons/ChatIcon';
+import './Group.scss';
 
 const Group = ({ groupInfo }) => {
     // console.log('rop', groupInfo)
     return (
-        <section>
-            <p>{groupInfo.name}</p>
-            <span>{groupInfo.username}</span>
-            <Link to={`/chat/${groupInfo.group_id}`}>
-                Open Chat
+        <section className="group-container">
+            <span id="group-name">{groupInfo.name}</span>
+            <Link className="link group-link" to={`/chat/${groupInfo.group_id}`}>
+                <ChatIcon />
             </Link>
         </section>
     )

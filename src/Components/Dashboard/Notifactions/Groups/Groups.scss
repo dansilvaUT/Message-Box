@@ -1,0 +1,17 @@
+@import '../../../../base';
+
+.groups-container {
+    background-color: $green-light;
+    padding: 10px;
+    border-radius: 5px;
+    
+    .groups-heading {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .group-scroll {
+        overflow-y: scroll;
+        height: 30vh;
+    }
+}

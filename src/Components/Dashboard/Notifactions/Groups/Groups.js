@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getUserGroups } from '../../../../redux/reducers/chatGroupReducer';
 import Group from './Group/Group';
+import './Groups.scss';
 
 const Groups = props => {
 
@@ -20,9 +21,11 @@ const Groups = props => {
     }
 
     return (
-        <section>
-            <Heading2 text='My Groups' />
-            {displayChatGroups(groups)}
+        <section className="groups-container">
+            <Heading2 classname='groups-heading' text='My Groups' />
+            <section className="group-scroll">
+                {displayChatGroups(groups)}
+            </section>
         </section>
     )
 }
