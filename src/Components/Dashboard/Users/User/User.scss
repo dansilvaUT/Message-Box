@@ -1,0 +1,7 @@
+@import '../../../../base';
+
+.user-info-display {
+    @include flex-center-row;
+    justify-content: space-around;
+    margin: 5px;
+}

@@ -4,6 +4,7 @@ import { getGroupInfo } from '../../redux/reducers/chatGroupReducer';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react';
+import CloseIcon from '../Icons/CloseIcon';
 import './Chat.scss';
 
 const Chat = props => {
@@ -19,11 +20,11 @@ const Chat = props => {
     }, [id, getGroupInfo])
     // console.log('chat ', props)
 
- 
+
     return (
         <>
             <section className='chat-container'>
-                <Submit text='Close Chat' func={goBack} />
+                <Submit classname='btn close-btn' text='Close Chat' icon={<CloseIcon />} type='submit' func={goBack} />
                 <Chats />
             </section>
         </>
