@@ -5,6 +5,8 @@ import User from './User/User';
 import axios from 'axios';
 import Submit from '../../Buttons/Submit';
 import StartChat from '../../Chat/StartChat/StartChat';
+import CloseIcon from '../../Icons/CloseIcon';
+import CreateIcon from '../../Icons/CreateIcon';
 import './Users.scss';
 
 const Users = props => {
@@ -34,9 +36,11 @@ const Users = props => {
     }
     // console.log('users component', props);
     return (
-        <section className='users-container'>
-            <Submit text='Close' func={goBack} />
-            <Submit text='Create A Chat' func={() => toggleCreate()} />
+        <section>
+            <section className="users-controls">
+                <Submit classname='btn close-btn' icon={<CloseIcon />} type='submit' text='Close' func={goBack} />
+                <Submit classname='btn add-btn' icon={<CreateIcon />} text='Create A Chat' func={() => toggleCreate()} />
+            </section>
             <section>
                 {chat
                     ?
@@ -45,7 +49,7 @@ const Users = props => {
                     null
                 }
             </section>
-            <section>
+            <section className='users-container'>
                 {mapUsers(users)}
             </section>
         </section>

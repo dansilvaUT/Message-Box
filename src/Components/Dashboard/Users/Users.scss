@@ -1,8 +1,39 @@
 @import '../../../base';
 
-.users-container {
-    background-color: green;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.users-controls {
+    @include flex-center-row;
 }
+
+.users-container {
+    background-color: $green-light;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.close-btn,
+.add-btn {
+    margin: 3px;
+}
+
+.close-btn {
+    color: $red;
+    background-color: transparent;
+    border: 1px solid $red;
+}
+
+.close-btn:hover {
+    color: white;
+    background-color: $red-light;
+}
+
+.add-btn {
+    color: $blue;
+    background-color: transparent;
+    border: 1px solid $blue;
+}
+
+.add-btn:hover {
+    color: white;
+    background-color: $blue-transparent;
+}
+
