@@ -70,86 +70,35 @@ class Chats extends Component {
         this.scrollToBottom();
     }
     render() {
+        console.log(this.state.messages)
+        const { user_id } = this.props;
         return (
             <section>
                 <div className="messages-container">
                     {this.state.messages.map(m => (
-                        <p>{m.message}</p>
+                        <section key={m.chat_id}>
+                            {user_id === m.user_id
+                                ?
+                                <article className="chat-message-info">
+                                    <p className="owner-chat-message">{m.message}</p>
+                                    <span className="owner-name">@{m.username}</span>
+                                </article>
+                                :
+                                <article className="chat-message-info">
+                                    <p className="chat-message">{m.message}</p>
+                                    <span className="owner-name">@{m.username}</span>
+                                </article>
+
+                            }
+                        </section>
                     ))}
                     <div ref={this.messageEnd} />
                 </div >
                 <ChatControls handleMessageProp={this.handleMessageInput} messageInput={this.state.message} sendMessageProp={this.sendMessage} />
-            </section>
+            </section >
         )
     }
 }
-
-// const Chats = props => {
-
-//     const [message, setMessage] = useState('');
-//     const [messages, setMessages] = useState([]);
-
-//     const socket = io.connect();
-//     const { user_id } = props;
-//     const { group_id } = props.group[0];
-
-
-
-//     useEffect(() => {
-
-//         socket.on('room joined', data => {
-//             joinSuccess(data);
-//         });
-//         socket.on('message dispatched', data => {
-//             getMessages(data);
-//         });
-
-//         joinRoom();
-
-//         return () => {
-//             socket.disconnect();
-//         }
-//     }, [socket]);
-
-
-//     const handleMessageInput = e => {
-//         setMessage(e.target.value)
-//     }
-
-//     const joinSuccess = messages => {
-//         setMessages(messages)
-//     }
-
-//     const sendMessage = () => {
-//         socket.emit('message sent', {
-//             group_id,
-//             user_id,
-//             message
-//         });
-//         setMessage('');
-//     }
-
-//     const getMessages = messages => {
-//         setMessages(messages)
-//     }
-//     const joinRoom = async () => {
-//         socket.emit('join room', {
-//             group_id
-//         })
-//     }
-
-//     console.log('chats', messages);
-//     return (
-// <section>
-//     <div className="messages-container">
-//         {messages.map(m => (
-//             <p>{m.message}</p>
-//         ))}
-//     </div>
-//     <ChatControls handleMessageProp={handleMessageInput} messageInput={message} sendMessageProp={sendMessage} />
-// </section>
-//     )
-// }
 
 const mapStateToProps = reduxState => {
     return {
