@@ -3,5 +3,33 @@
 .messages-container {
     width: 400px;
     min-height: 500px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.253);
+    border-radius: 5px;
+
+    .chat-message-info {
+        margin: 10px;
+    }
+
+    .owner-name {
+        color:white;
+        font-size: .7em;
+        display: block;
+    }
+
+    .chat-message,
+    .owner-chat-message {
+        display: inline-block;
+        color: white;
+        border-radius: 25px;
+        padding: 5px 10px;
+        word-wrap: break-word;
+    }
+
+    .chat-message {
+        background-color: $blue;
+    }
+
+    .owner-chat-message {
+        background-color: $green;
+    }
 }
