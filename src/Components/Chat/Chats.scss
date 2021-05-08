@@ -1,13 +1,16 @@
 @import '../../base';
 
 .messages-container {
-    width: 400px;
     min-height: 500px;
     background-color: rgba(0, 0, 0, 0.253);
     border-radius: 5px;
 
     .chat-message-info {
         margin: 10px;
+    }
+
+    .owner {
+        text-align: right;
     }
 
     .owner-name {

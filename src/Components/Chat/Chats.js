@@ -79,16 +79,15 @@ class Chats extends Component {
                         <section key={m.chat_id}>
                             {user_id === m.user_id
                                 ?
-                                <article className="chat-message-info">
+                                <article className="chat-message-info owner">
                                     <p className="owner-chat-message">{m.message}</p>
-                                    <span className="owner-name">@{m.username}</span>
+                                    <span className="owner-name">Me</span>
                                 </article>
                                 :
                                 <article className="chat-message-info">
                                     <p className="chat-message">{m.message}</p>
                                     <span className="owner-name">@{m.username}</span>
                                 </article>
-
                             }
                         </section>
                     ))}

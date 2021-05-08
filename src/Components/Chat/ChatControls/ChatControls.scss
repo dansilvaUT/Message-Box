@@ -1,0 +1,32 @@
+@import '../../../base';
+
+.chat-controls-container {
+    @include flex-center-row;
+
+    .chat-message-field {
+        padding: 5px;
+        width: 70%;
+        border-radius: 5px;
+        height: 20px;
+    }
+
+    .send-message-btn {
+        background-color: transparent;
+        color: $green;
+        border: 1px solid $green;
+        width: 30%;
+        margin-left: 5px;
+        font-size: 1.5em;
+    }
+
+    .send-message-btn:hover {
+        color: white;
+        background-color: $green-hover;
+    }
+
+    @media (max-width: 700px){
+        .send-message-btn {
+            width: 30%;
+        }
+    }
+}
