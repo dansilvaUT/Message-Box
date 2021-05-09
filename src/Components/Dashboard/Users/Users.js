@@ -41,14 +41,12 @@ const Users = props => {
                 <Submit classname='btn close-btn' icon={<CloseIcon />} type='submit' text='Close' func={goBack} />
                 <Submit classname='btn add-btn' icon={<CreateIcon />} text='Create A Chat' func={() => toggleCreate()} />
             </section>
-            <section>
                 {chat
                     ?
                     <StartChat />
                     :
                     null
                 }
-            </section>
             <section className='users-container'>
                 {mapUsers(users)}
             </section>

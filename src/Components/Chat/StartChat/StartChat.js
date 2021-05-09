@@ -4,6 +4,7 @@ import Submit from '../../Buttons/Submit';
 import Label from '../../Label/Label';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import './StartChat.scss';
 
 const StartChat = props => {
 
@@ -29,14 +30,16 @@ const StartChat = props => {
     return (
         <section className="chat-name-container">
             <TextField
+                classname='chat-name-field'
                 placeholder='Group or Chat name?'
                 type='text'
                 name='chatName'
                 func={e => handleInputChange(e)}
                 value={chatName}
             />
-            <Submit text='Add Name' func={() => addGroup(user_id, chatName, isPrivate)} />
+            <Submit classname='btn add-group-btn' type='submit' text='Add Name' func={() => addGroup(user_id, chatName, isPrivate)} />
             <Label
+                classname='private-label'
                 name='isPrivate'
                 text='Private' />
             <TextField
