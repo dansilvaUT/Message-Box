@@ -1,9 +1,11 @@
 @import '../../base';
 
 .messages-container {
-    min-height: 500px;
+    max-height: 500px;
     background-color: rgba(0, 0, 0, 0.253);
     border-radius: 5px;
+    min-width: 100vw;
+    overflow-y: scroll;
 
     .chat-message-info {
         margin: 10px;

@@ -1,5 +1,33 @@
 @import '../../../base';
 
 .chat-name-container {
-    background-color: rgb(60, 60, 228);
+    @include flex-center-row;
+
+    .chat-name-field,
+    .add-group-btn,
+    .private-label {
+        margin: 3px;
+    }
+
+    .chat-name-field {
+        border-radius: 5px;
+        height: 20px;
+        padding: 5px;
+    }
+
+    .add-group-btn {
+        color: $green;
+        border: 1px solid $green;
+        background-color: transparent;
+        height: 30px;
+    }
+
+    .add-group-btn:hover {
+        color: white;
+        background-color: $green-hover;
+    }
+
+    .private-label {
+        font-weight: bold;
+    }
 }
