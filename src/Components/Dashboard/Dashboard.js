@@ -12,6 +12,7 @@ const Dashboard = props => {
     return (
         <section className="dashboard">
             <Header />
+            <span>click me</span>
             <section className='container dashboard-container'>
                 <Notifications />
                 <Link to='/dash/users'>

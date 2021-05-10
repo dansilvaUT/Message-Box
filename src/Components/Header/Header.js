@@ -16,8 +16,8 @@ const Header = props => {
 
     return (
         <header id="myNav" className='header'>
-            <span onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
-            <Nav />
+            <span id="menu-icon" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
+            <Nav id="nav-component" />
         </header>
     )
 }

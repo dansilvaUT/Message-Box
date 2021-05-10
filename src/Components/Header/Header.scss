@@ -10,11 +10,18 @@
 }
 
 .header-toggle {
-    height: 100%;
     background-color: $blue-lighter;
-    width: 20px;
+    width: 10px;
     margin: 0;
     position: fixed;
     z-index: 2;
+        overflow-x: hidden;
+    
 }
+
+#menu-icon {
+   position: relative;
+   left: 130px;
+}
+
 
