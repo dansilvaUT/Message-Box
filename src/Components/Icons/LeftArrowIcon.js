@@ -4,7 +4,7 @@ import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
 const LeftArrowIcon = () => {
     return (
         <>
-            <FontAwesomeIcon icon={faAngleDoubleLeft} />
+            <FontAwesomeIcon style={{transform: "rotate(270deg)"}} icon={faAngleDoubleLeft} />
         </>
     )
 }
