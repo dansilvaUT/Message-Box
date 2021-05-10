@@ -5,15 +5,28 @@ import Submit from '../Buttons/Submit';
 import { Switch, Route, Link } from 'react-router-dom';
 import Users from './Users/Users';
 import UsersIcon from '../Icons/UsersIcon';
+import LeftArrowIcon from '../Icons/LeftArrowIcon';
 import './Dashboard.scss';
 
 const Dashboard = props => {
     // console.log('dash', props)
+
+    const toggleMenu = () => {
+        const nav = document.getElementById("myNav");
+        const menuIcon = document.getElementById("menu-icon");
+        if (nav.className === 'header') {
+            nav.className = 'header-toggle';
+            menuIcon.style.right = "200px";
+        } else {
+            nav.className = 'header';
+            menuIcon.style.right = "85px";
+        }
+    }
     return (
         <section className="dashboard">
             <Header />
-            <span>click me</span>
             <section className='container dashboard-container'>
+                <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
                 <Notifications />
                 <Link to='/dash/users'>
                     <Submit classname='btn search-btn' text='Search Users' icon={<UsersIcon />} />
