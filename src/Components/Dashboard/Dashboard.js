@@ -16,10 +16,10 @@ const Dashboard = props => {
         const menuIcon = document.getElementById("menu-icon");
         if (nav.className === 'header') {
             nav.className = 'header-toggle';
-            menuIcon.style.right = "200px";
+            menuIcon.style.right = "400px";
         } else {
             nav.className = 'header';
-            menuIcon.style.right = "85px";
+            menuIcon.style.right = "300px";
         }
     }
     return (
