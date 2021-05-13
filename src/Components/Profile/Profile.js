@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
 
 const Profile = props => {
     console.log(props)
     return (
-        <>Profile</>
+        <section>
+            <Header />
+        </section>
     )
 }
 
