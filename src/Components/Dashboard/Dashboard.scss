@@ -24,18 +24,18 @@
         color: white;
     }
 
-    #menu-icon {
-        position: relative;
-        right: 300px;
-        bottom: 150px;
-        transition: 0.3s;
-    }
-
     .rotated {
         transform: rotate(90deg); /* Equal to rotateZ(45deg) */
         font-weight: bold;
         font-size: 2em;
       }
+
+      #menu-icon {
+        position: relative;
+        right: 300px;
+        bottom: 150px;
+        transition: 0.3s;
+    }
 }
 
 

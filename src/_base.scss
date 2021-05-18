@@ -34,6 +34,10 @@ $red-light: rgba(230, 141, 57, 0.788);
     font-size: 3rem;
 }
 
+.heading2 {
+    font-size: 2rem;
+}
+
 textarea:focus, input:focus{
     outline: none;
 }
@@ -57,3 +61,4 @@ button {
 .container {
     margin-left: 100px;
 }
+
