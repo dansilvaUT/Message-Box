@@ -11,5 +11,20 @@
 }
 
 .profile-info-container {
-    margin-left: 120px;
+    @include flex-row-between;
+}
+
+.rotated {
+    transform: rotate(90deg); /* Equal to rotateZ(45deg) */
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+#menu-icon {
+    transition: 0.3s;
+}
+
+#main {
+    transition: margin-left 0.3s;
+    padding: 200px 16px 16px 16px;
 }

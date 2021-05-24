@@ -22,11 +22,23 @@ const Profile = props => {
             </>
         )
     }
+
+    const toggleMenu = () => {
+        const nav = document.getElementById("myNav");
+        const main = document.getElementById("main");
+        if (nav.className === 'header') {
+            nav.className = 'header-toggle';
+            main.style.marginLeft = '150px';
+        } else {
+            nav.className = 'header';
+            main.style.marginLeft = '0';
+        }
+    }
     return (
         <section className="profile-container">
             <Header />
-            <section className="profile-info-container">
-            <span id="menu-icon" className="rotated" >Menu <LeftArrowIcon /></span>
+            <section id="main" className="profile-info-container">
+                <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
                 <Heading1 text={`Profile for ${username}`} />
                 <Heading2 classname='heading2' text='My Info' />
                 <section>
