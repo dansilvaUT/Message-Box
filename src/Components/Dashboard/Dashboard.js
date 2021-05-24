@@ -13,27 +13,27 @@ const Dashboard = props => {
 
     const toggleMenu = () => {
         const nav = document.getElementById("myNav");
-        const menuIcon = document.getElementById("menu-icon");
+        const main = document.getElementById("main");
         if (nav.className === 'header') {
             nav.className = 'header-toggle';
-            menuIcon.style.right = "400px";
+            main.style.marginLeft = '150px';
         } else {
             nav.className = 'header';
-            menuIcon.style.right = "300px";
+            main.style.marginLeft = '0';
         }
     }
     return (
         <section className="dashboard">
             <Header />
-            <section className='container dashboard-container'>
-                <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
-                <Notifications />
-                <Link to='/dash/users'>
-                    <Submit classname='btn search-btn' text='Search Users' icon={<UsersIcon />} />
-                </Link>
-                <Switch>
-                    <Route path='/dash/users' component={Users} />
-                </Switch>
+            <section id="main" className='container dashboard-container'>
+                    <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
+                    <Notifications />
+                    <Link to='/dash/users'>
+                        <Submit classname='btn search-btn' text='Search Users' icon={<UsersIcon />} />
+                    </Link>
+                    <Switch>
+                        <Route path='/dash/users' component={Users} />
+                    </Switch>
             </section>
         </section>
     )

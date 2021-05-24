@@ -29,6 +29,12 @@ $red-light: rgba(230, 141, 57, 0.788);
     align-items: center;
 }
 
+@mixin flex-row-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 //Headings
 .heading1 {
     font-size: 3rem;
@@ -58,7 +64,4 @@ button {
     color: white;
 }
 
-.container {
-    margin-left: 100px;
-}
 

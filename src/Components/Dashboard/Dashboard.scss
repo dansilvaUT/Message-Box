@@ -6,8 +6,7 @@
     color: white;
 
     .dashboard-container {
-        @include flex-center-row;
-        height: 100vh;
+        @include flex-row-between;
     }
    
     .search-btn {
@@ -30,11 +29,13 @@
         font-size: 2em;
       }
 
-      #menu-icon {
-        position: relative;
-        right: 300px;
-        bottom: 150px;
+    #menu-icon {
         transition: 0.3s;
+    }
+
+    #main {
+        transition: margin-left 0.3s;
+        
     }
 }
 
