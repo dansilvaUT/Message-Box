@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 import './Profile.scss';
 
 const Profile = props => {
-    console.log(props)
+    // console.log(props)
     const { username, date_joined, email, profile_pic } = props.user;
 
     const displayMyInfo = () => {
