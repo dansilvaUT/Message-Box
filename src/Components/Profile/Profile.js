@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 import './Profile.scss';
 
 const Profile = props => {
-    console.log(props)
+    // console.log(props)
     const { username, date_joined, email, profile_pic } = props.user;
 
     const displayMyInfo = () => {
@@ -39,11 +39,14 @@ const Profile = props => {
             <Header />
             <section id="main" className="profile-info-container">
                 <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
-                <Heading1 text={`Profile for ${username}`} />
-                <Heading2 classname='heading2' text='My Info' />
-                <section>
-                    {displayMyInfo()}
+                <section className="profile-main">
+                    <Heading1 text={`Profile for ${username}`} />
+                    <Heading2 classname='heading2' text='My Info' />
+                    <section>
+                        {displayMyInfo()}
+                    </section>
                 </section>
+
             </section>
         </section>
     )

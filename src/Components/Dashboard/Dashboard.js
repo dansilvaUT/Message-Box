@@ -26,9 +26,10 @@ const Dashboard = props => {
     return (
         <section className="dashboard">
             <Header />
+            <Heading1 classname='heading1 dashboard-heading' text='My Dashboard' />
             <section id="main" className='container dashboard-container'>
-                    <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
-                    <Heading1 text='My Dashboard'/>
+                <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
+                <section className="main-dash-content">
                     <Notifications />
                     <Link to='/dash/users'>
                         <Submit classname='btn search-btn' text='Search Users' icon={<UsersIcon />} />
@@ -36,6 +37,7 @@ const Dashboard = props => {
                     <Switch>
                         <Route path='/dash/users' component={Users} />
                     </Switch>
+                </section>
             </section>
         </section>
     )

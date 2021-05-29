@@ -2,11 +2,21 @@
 
 .dashboard {
     background-color: $background;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
+
+
+    .dashboard-heading {
+        text-align: center;
+    }
 
     .dashboard-container {
         @include flex-row-between;
+
+        .main-dash-content {
+            margin: 0 auto;
+            @include flex-row-between;
+        }
     }
    
     .search-btn {
