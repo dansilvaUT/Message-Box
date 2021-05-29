@@ -6,6 +6,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Users from './Users/Users';
 import UsersIcon from '../Icons/UsersIcon';
 import LeftArrowIcon from '../Icons/LeftArrowIcon';
+import Heading1 from '../Headings/Heading1';
 import './Dashboard.scss';
 
 const Dashboard = props => {
@@ -27,6 +28,7 @@ const Dashboard = props => {
             <Header />
             <section id="main" className='container dashboard-container'>
                     <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
+                    <Heading1 text='My Dashboard'/>
                     <Notifications />
                     <Link to='/dash/users'>
                         <Submit classname='btn search-btn' text='Search Users' icon={<UsersIcon />} />
