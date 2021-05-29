@@ -39,11 +39,14 @@ const Profile = props => {
             <Header />
             <section id="main" className="profile-info-container">
                 <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
-                <Heading1 text={`Profile for ${username}`} />
-                <Heading2 classname='heading2' text='My Info' />
-                <section>
-                    {displayMyInfo()}
+                <section className="profile-main">
+                    <Heading1 text={`Profile for ${username}`} />
+                    <Heading2 classname='heading2' text='My Info' />
+                    <section>
+                        {displayMyInfo()}
+                    </section>
                 </section>
+
             </section>
         </section>
     )
