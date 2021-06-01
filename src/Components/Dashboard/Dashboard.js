@@ -7,6 +7,7 @@ import Users from './Users/Users';
 import UsersIcon from '../Icons/UsersIcon';
 import LeftArrowIcon from '../Icons/LeftArrowIcon';
 import Heading1 from '../Headings/Heading1';
+import MenuIcon from '../Icons/MenuIcon';
 import './Dashboard.scss';
 
 const Dashboard = props => {
@@ -26,7 +27,10 @@ const Dashboard = props => {
     return (
         <section className="dashboard">
             <Header />
-            <Heading1 classname='heading1 dashboard-heading' text='My Dashboard' />
+            <div className="nav-head">
+                <Heading1 classname='heading1 dashboard-heading' text='My Dashboard' />
+                <MenuIcon />
+            </div>
             <section id="main" className='container dashboard-container'>
                 <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
                 <section className="main-dash-content">

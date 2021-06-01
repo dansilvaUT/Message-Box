@@ -49,5 +49,26 @@
     }
 }
 
+@media (max-width: 670px){
+    .main-dash-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px){
+    #menu-icon {
+        display: none;
+    }
+
+    .nav-head {
+        @include flex-row-between;
+        padding: 0 15px;
+    }
+
+    .dashboard-heading {
+        font-size: 2em!important;
+    }
+}
+
 
 

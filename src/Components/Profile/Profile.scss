@@ -8,10 +8,18 @@
     background-color: $background;
     height: 100vh;
     color: white;
+
+    .profile-heading {
+        text-align:center;
+    }
 }
 
 .profile-info-container {
     @include flex-row-between;
+
+    .profile-main {
+        margin: 0 auto;
+    }
 }
 
 .rotated {
