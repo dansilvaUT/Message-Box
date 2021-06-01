@@ -1,0 +1,11 @@
+@import '../../../base';
+
+.menu-bars {
+    font-size: 30px;
+}
+
+@media (min-width: 500px){
+    .menu-bars {
+        display: none;
+    }
+}

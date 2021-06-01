@@ -37,6 +37,7 @@ const Profile = props => {
     return (
         <section className="profile-container">
             <Header />
+            <Heading1 classname='heading1 profile-heading' text='My Profile' />
             <section id="main" className="profile-info-container">
                 <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
                 <section className="profile-main">
@@ -46,7 +47,6 @@ const Profile = props => {
                         {displayMyInfo()}
                     </section>
                 </section>
-
             </section>
         </section>
     )
