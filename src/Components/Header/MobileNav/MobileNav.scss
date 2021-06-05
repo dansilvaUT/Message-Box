@@ -1,0 +1,13 @@
+@import '../../../base';
+
+.mobile-navbar {
+    position: relative;
+    width: 160px;
+    padding: 5px;
+    background-color: $blue-transparent;
+    font-size: 15px;
+    @include flex-center;
+    align-items: flex-start;
+    border-radius: 5px;
+    top: 70px;
+}
