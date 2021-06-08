@@ -5,11 +5,12 @@ import Heading2 from '../Headings/Heading2';
 import LeftArrowIcon from '../Icons/LeftArrowIcon';
 import MenuIcon from '../Icons/MenuIcon';
 import dayjs from 'dayjs';
+import DropZone from '../DropZone/DropZone';
 import './Profile.scss';
 
 const Profile = props => {
     // console.log(props)
-    const { username, date_joined, email } = props.user;
+    const { username, date_joined, email, profile_pic } = props.user;
 
     const displayMyInfo = () => {
         return (
@@ -45,6 +46,15 @@ const Profile = props => {
             <section id="main" className="profile-info-container">
                 <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
                 <section className="profile-main">
+                    {profile_pic === null
+                        ?
+                        <>
+                            <Heading2 text='Add a Picture of Yourself!' />
+                            <DropZone />
+                        </>
+                        :
+                        <img src={profile_pic} alt={username} />
+                    }
                     <Heading1 text={`Profile for ${username}`} />
                     <Heading2 classname='heading2' text='My Info' />
                     <section>
