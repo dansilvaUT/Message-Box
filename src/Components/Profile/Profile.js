@@ -3,12 +3,13 @@ import Header from '../Header/Header';
 import Heading1 from '../Headings/Heading1';
 import Heading2 from '../Headings/Heading2';
 import LeftArrowIcon from '../Icons/LeftArrowIcon';
+import MenuIcon from '../Icons/MenuIcon';
 import dayjs from 'dayjs';
 import './Profile.scss';
 
 const Profile = props => {
     // console.log(props)
-    const { username, date_joined, email, profile_pic } = props.user;
+    const { username, date_joined, email } = props.user;
 
     const displayMyInfo = () => {
         return (
@@ -37,7 +38,10 @@ const Profile = props => {
     return (
         <section className="profile-container">
             <Header />
-            <Heading1 classname='heading1 profile-heading' text='My Profile' />
+            <div className="nav-head">
+                <Heading1 classname='heading1 profile-heading' text='My Profile' />
+                <MenuIcon />
+            </div>
             <section id="main" className="profile-info-container">
                 <span id="menu-icon" className="rotated" onClick={() => toggleMenu()}>Menu <LeftArrowIcon /></span>
                 <section className="profile-main">

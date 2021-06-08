@@ -1,7 +1,7 @@
 @import '../../../base';
 
 .mobile-navbar {
-    position: relative;
+    position: absolute;
     width: 160px;
     padding: 5px;
     background-color: $blue-transparent;
@@ -9,5 +9,10 @@
     @include flex-center;
     align-items: flex-start;
     border-radius: 5px;
-    top: 70px;
+    top: 50px;
+    right: 0;
+}
+
+.mobile-nav-link {
+    cursor: pointer;
 }
