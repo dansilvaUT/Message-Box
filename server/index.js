@@ -42,6 +42,7 @@ app.post('/api/logout', authCtlr.logout);
 //USER
 app.get('/api/auth/me', userCtlr.getUser);
 app.get('/api/users/all', userCtlr.getAllUsers);
+app.post('/api/users/updatepic', userCtlr.updateProfile);
 
 
 //GROUPS
