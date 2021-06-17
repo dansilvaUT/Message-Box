@@ -16,5 +16,14 @@ module.exports = {
         }
 
         res.send(users);
+    },
+
+    updateProfile: async (req, res) => {
+        const db = req.app.get('db');
+
+        const { user_id, profile_pic } = req.body;
+        const [result] = await db.users.update_profile({ user_id, profile_pic });
+        res.status(200).send(result);
+
     }
 }
