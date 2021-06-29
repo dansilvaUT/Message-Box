@@ -17,6 +17,17 @@ const DropZone = (props) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
     console.log('user', props.user);
 
+    const getFile = () => {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            // get loaded data
+            image.src = e.target.result;
+        };
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0])
+    }
+
     const updateProfilePic = (id, pic) => {
         axios.post('/api/users/updatepic', { id, pic })
             .then(res => setPic(res.data))
